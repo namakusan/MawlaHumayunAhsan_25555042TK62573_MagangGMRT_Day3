@@ -49,7 +49,7 @@ float tempy = 0;
 float tempz = 0;
 
 void loop() {
-  // mendapatkan hasil bacaan dari sensor
+  // mendapatkan hasil bacaan dari MPU
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
@@ -104,6 +104,7 @@ void loop() {
 
   tempz = g.gyro.z;
 
+  // ulang hal yang sama untuk z dan y
   if (g.gyro.y > tempy){
     yaw1.write(180);
   } else if (g.gyro.y < tempy){
